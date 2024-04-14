@@ -21,8 +21,8 @@ export function WrapImage({
       flexWrap: "wrap",
       flexDirection: "row",
       padding: 2,
-      border: border ? theme.border : "none",
-      borderTop: top ? theme.border : "none",
+      border: border ? theme.border() : "none",
+      borderTop: top ? theme.border() : "none",
 
       ...style_wrap,
     },
@@ -34,6 +34,8 @@ export function WrapImage({
 type PropsImg = {
   src?: string;
   description?: string;
+  width?: number | string;
+  height?: number | string;
 
   style_img?: Style;
   style_description?: Style;
@@ -41,6 +43,8 @@ type PropsImg = {
 
 export function Img({
   src,
+  width,
+  height,
   description,
   style_img,
   style_description,
@@ -48,21 +52,22 @@ export function Img({
   const styles = StyleSheet.create({
     wrap_image: {
       margin: 2,
+      width: "auto",
     },
     img: {
-      height: 40,
+      height: height || 40,
+      width: width || "auto",
       aspectRatio: "16/9",
       objectFit: "contain",
-
       ...style_img,
     },
     wrap_description: {
       marginVertical: 8,
-    },
-    description: {
+      width: width ? width : "auto",
       textAlign: "center",
       ...style_description,
     },
+    description: {},
   });
 
   return (
@@ -71,7 +76,7 @@ export function Img({
 
       {description && (
         <View style={styles.wrap_description}>
-          <Text style={styles.description}> {description}</Text>
+          <Text style={styles.description}>{description}</Text>
         </View>
       )}
     </View>

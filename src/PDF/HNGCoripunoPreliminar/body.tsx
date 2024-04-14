@@ -139,7 +139,7 @@ export function Body() {
           width={100}
           label="Fotografías o Diagrama:"
           render_content={() => (
-            <WrapImage>
+            <WrapImage border={false}>
               <Img src="/flow.png" />
               <Img src="/flow.png" />
               <Img src="/flow.png" />

@@ -1,9 +1,9 @@
-import RenderHNGCoripuno from "./PDF/HNG_Coripuno/render_HNG_Coripuno";
+import RenderHNGK2Incidente from "./PDF/HNG_K2_Incidente/render_HNG_K2_Incidente";
 
 function App() {
   return (
     <>
-      <RenderHNGCoripuno />
+      <RenderHNGK2Incidente />
     </>
   );
 }

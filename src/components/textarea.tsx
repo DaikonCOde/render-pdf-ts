@@ -3,14 +3,16 @@ import { StyleSheet, Text, View } from "@react-pdf/renderer";
 import { theme } from "./theme";
 
 type PropsTextarea = {
-  value: string;
+  value: string | null | undefined;
+  border?: boolean;
+  bt?: boolean;
   style?: Style;
 };
 
-export default function Textarea({ value }: PropsTextarea) {
+export default function Textarea({ value, border, bt, style }: PropsTextarea) {
   const styles = StyleSheet.create({
     wrap_textarea: {
-      padding: 4,
+      padding: 2,
       minHeight: theme.textarea.min_height,
       textAlign: theme.textarea.text_align as
         | "center"
@@ -18,12 +20,13 @@ export default function Textarea({ value }: PropsTextarea) {
         | "right"
         | "justify"
         | undefined,
+      border: border ? theme.border() : "none",
+      borderTop: bt ? theme.border() : "none",
+      ...style,
     },
   });
 
   return (
-    <View style={styles.wrap_textarea}>
-      <Text>{value}</Text>
-    </View>
+    <View style={styles.wrap_textarea}>{!!value && <Text>{value}</Text>}</View>
   );
 }

@@ -105,6 +105,7 @@ export function Cabecera() {
               width_content={50}
               width_head={50}
               page_indicator
+              separator_pagination="/"
             />
           </Row>
         </Cell>

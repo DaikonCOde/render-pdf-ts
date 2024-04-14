@@ -1,24 +1,32 @@
 import { StyleSheet } from "@react-pdf/renderer";
 
 export const theme = {
-  border: "1px solid #212121",
+  border_color: "#212121",
+  border_style: "solid",
+  border_width: "1px",
+
+  border: () =>
+    `${theme.border_width} ${theme.border_style} ${theme.border_color}`,
 
   font: "Helvetica",
   fontBold: "Helvetica-Bold",
   fontSize: 8,
 
   cell: {
-    bg_head: "#3333",
+    bg_head: "#d9d9d9",
     color_head: "black",
     color_content: "black",
     text_align_head: "center",
     text_align_content: "center",
+    fontFamily: "Helvetica-Bold",
   },
 
   head_section: {
-    bg: "#212121",
+    bg: "#d9d9d9",
     text_align: "center",
-    color: "white",
+    color: "black ",
+    border: "1px solid #212121",
+    fontFamily: "Helvetica-Bold",
   },
 
   textarea: {
@@ -40,5 +48,16 @@ export const globalStyles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+  },
+
+  // numeration
+  numeration: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    fontSize: 5,
+    width: 8,
+    height: 8,
+    zIndex: 4,
   },
 });
