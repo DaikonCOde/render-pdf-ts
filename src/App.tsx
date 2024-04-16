@@ -1,9 +1,9 @@
-import RenderHNGK2Incidente from "./PDF/HNG_K2_Incidente/render_HNG_K2_Incidente";
+import RenderPulsoRegistro from "./PDF/PulsoRegistro/RenderPulsoRegistro";
 
 function App() {
   return (
     <>
-      <RenderHNGK2Incidente />
+      <RenderPulsoRegistro />
     </>
   );
 }
